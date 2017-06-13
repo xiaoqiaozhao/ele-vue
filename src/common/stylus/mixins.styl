@@ -1,0 +1,29 @@
+/* 小图标 */
+bg-image($url)
+  background-image url($url + "@2x.png")
+  @media (min-device-pixel-ratio:3),(-webkit-min-device-pixel-ratio:3)
+    background-image url($url + "@3x.png")
+
+/* 星星 */
+bg-star($url)
+  background-image url("../../components/star/"+$url +"@2x.png")
+  @media (min-device-pixel-ratio:3),(-webkit-min-device-pixel-ratio:3)
+    background-image url("../../components/star/"+$url +"@3x.png")
+
+
+/* 1物理像素 */
+border-1px($color)
+  position relative
+  border none
+  /*& 代表父元素，谁调用border-1px($color)，谁就会父元素*/
+  &:after
+    position absolute
+    left 0
+    bottom 0
+    content ''
+    display block
+    width 100%
+    height 1px
+    background $color
+    transform scaleY(0.5)
+
